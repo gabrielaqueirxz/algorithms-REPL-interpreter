@@ -5,7 +5,6 @@
 
 static void repl()
 {
-    
     char input[1024];
     while(1){
         printf("> ");

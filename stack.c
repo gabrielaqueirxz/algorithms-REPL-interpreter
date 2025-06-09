@@ -11,7 +11,6 @@ Stack* newStack(int size){
     Stack* stack = (Stack*) calloc(1, sizeof(struct _stack));
     stack->values = (float*) calloc(size, sizeof(float));
 
-
     stack->top = 0;
     return stack;
 }
