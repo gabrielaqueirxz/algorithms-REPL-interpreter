@@ -33,7 +33,7 @@ void interpret (const char *input, int print) {
     if(strcmp(op,"add")==0){
       stackPush(stack,a+b);
     } else if(strcmp(op,"sub")==0){
-        stackPush(stack,a-b);
+        stackPush(stack,b-a);
         } else if(strcmp(op,"div")==0){
         stackPush(stack, b/a);
         } else if(strcmp(op,"mul")==0){
