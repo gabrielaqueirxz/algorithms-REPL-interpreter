@@ -1,29 +1,39 @@
 #include <stdio.h>
-
+#include <string.h>
 #include "interpret.h"
+#include "stack.h"
 
 static void repl()
 {
-  char line[1024];
-  for (;;)
-  {
-    printf("> ");
-
-    if (!fgets(line, sizeof(line), stdin))
-    {
-      printf("\n");
-      break;
+    
+    char input[1024];
+    while(1){
+        printf("> ");
+        if(!fgets(input,sizeof(input),stdin)){
+            printf("\n");
+            break;
     }
 
-    interpret(line);
-  }
+    input[strcspn(input, "\n")] = 0;
+
+    if (strcmp(input, "exit") == 0) {
+        break;
+    }
+
+    interpret (input, 1); 
+    }
 }
 
-
-
-
 int main () {
+    printf("Comandos disponíveis:\n");
+    printf("  push <numero>\n");
+    printf("  pop \n");
+    printf("  add, sub, mul, div \n");
+    printf("  div\n");
+    printf("  print\n");
+    printf("  exit\n\n");
 
+    generateStack(50);
     repl();
     return 0;
 }

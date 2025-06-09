@@ -1,6 +1,2 @@
-#ifndef interprete_h
-#define interprete_h
-
-void interpret (const char *source) ;
-
-#endif
+void interpret (const char *input, int print);
+void generateStack (int quantValues);
