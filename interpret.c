@@ -25,8 +25,11 @@ void interpret (const char *input, int print) {
     } else if(strcmp(op,"print")==0){
         printf("Resultado: %.0f\n", stackPop(stack));
         if(print!=0){
-        stackPrint(stack);
-    }
+            stackPrint(stack);
+        }
+    } else {
+        printf("Erro: Operação '%s' é inválida.\n", op);
+    
   } else {
     a=stackPop(stack);
     b=stackPop(stack);
