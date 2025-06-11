@@ -29,11 +29,8 @@ void interpret (const char *input, int print) {
         }
     } else {
         printf("Erro: Operação '%s' é inválida.\n", op);
-        return
-    }
-  } else {
-    a=stackPop(stack);
-    b=stackPop(stack);
+        a=stackPop(stack);
+        b=stackPop(stack);
     if(strcmp(op,"add")==0){
       stackPush(stack,a+b);
     } else if(strcmp(op,"sub")==0){
