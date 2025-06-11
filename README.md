@@ -51,16 +51,16 @@ gcc main.c interpret.c stack.c -o maquina-pilha
 
 ### 3. Comandos disponíveis no REPL
 
-|Comandos | Disponíveis | Exemplo
-|push <n>	| Empilha um número	| push 10
-|pop	| Desempilha um valor	| pop
-|add	| Soma os dois valores no topo	| add
-|sub	| Subtrai os dois valores no topo	| sub
-|mul	| Multiplica os dois valores no topo	| mul
-|div	| Divide os dois valores no topo	| div
-|print	| Exibe o valor no topo	| print
-|exit	| Encerra o programa	| exit
-
+| Comando | Descrição |
+|------|-----------|
+| push <valor>  | Empilha um número inteiro (ex: push 10) |
+| pop | Remove o topo da pilha (sem imprimir |
+| add| Soma os dois valores do topo da pilha e empilha o resultado |
+| sub |  Subtrai o segundo valor do topo pelo primeiro e empilha |
+| mul | Multiplica os dois valores do topo |
+| div| Divide o segundo valor do topo pelo primeiro (divisão inteira) |
+| print | Imprime o valor no topo da pilha |
+| exit | Sai do programa |
 
 ### 4.Exemplo de Uso
 
