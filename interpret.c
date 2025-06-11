@@ -58,6 +58,6 @@ void interpret (const char *input, int print) {
 
     } else {
         printf("Erro: comando inválido!\n");
-        printf("Comandos: push <valor>, pop, add, sub, mul, div, print.\n");
+        printf("Comandos: push <valor>, pop, add, sub, mul, div, print, exit.\n");
     }
 }
