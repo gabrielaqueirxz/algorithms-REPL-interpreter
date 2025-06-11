@@ -3,20 +3,20 @@
 #include "stdlib.h"
 
 struct _stack {
-    float * values;
+    int * values;
     int top;
     int maxSize;
 };
 
 Stack* newStack(int size){
     Stack* stack = (Stack*) calloc(1, sizeof(struct _stack));
-    stack->values = (float*) calloc(size, sizeof(float));
+    stack->values = (int*) calloc(size, sizeof(int));
     stack->top = 0;
     stack->maxSize = size;  
     return stack;
 }
 
-void stackPush(Stack* stack, float value){
+void stackPush(Stack* stack, int value){
     if (stack->top >= stack->maxSize) {
         printf("Erro: Pilha cheia!\n");
         return;
@@ -24,7 +24,7 @@ void stackPush(Stack* stack, float value){
     stack->values[stack->top++] = value;
 }
 
-float stackPop (Stack *stack){
+int stackPop (Stack *stack){
      if (stack->top == 0) {
         printf("Erro: Pilha vazia!\n");
         return 0;
@@ -36,7 +36,7 @@ void stackPrint(Stack* stack){
     printf("------Current Stack------\n");
     if(stack->top!=0){
         for (int i=0; i < stack->top; i++) {
-        printf ("\n%0.f\n", stack->values[i]);
+        printf ("\n%d\n", stack->values[i]);
         }
     }
     printf("-------------------------\n");
