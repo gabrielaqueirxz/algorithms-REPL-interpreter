@@ -16,6 +16,7 @@ static void repl()
     input[strcspn(input, "\n")] = 0;
 
     if (strcmp(input, "exit") == 0) {
+        printf("Saindo...\n");
         break;
     }
 
@@ -32,7 +33,7 @@ int main () {
     printf("  print\n");
     printf("  exit\n\n");
 
-    generateStack(50);
+    generateStack(15);
     repl();
     return 0;
 }
