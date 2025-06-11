@@ -8,12 +8,10 @@ Implementação de um interpretador REPL para uma máquina virtual baseada em pi
 
 ## 👥 Integrantes do Grupo
 | Nome | Matrícula |
-|------|-----------|
-| AMANDA MIKELY ABREU MACÊDO |  |
-| GABRIELA TORRES DE QUEIROZ |  |
-| JOAO FELIPE SILVA SOEIRO |  |
-| SAVIO RODRIGUES JEREMIAS DE SOUSA |  |
-| ISABEL SILVA DE ARAUJO |  |
+- Amanda Mikely Abreu Macêdo  
+- Gabriela Torres de Queiroz  
+- João Felipe Silva Soeiro  
+- Sávio Rodrigues Jeremias de Sousa   
 
 ## 📝 Descrição
 Implementação de um interpretador interativo (REPL) para uma máquina virtual baseada em pilha, desenvolvido em C como parte da disciplina de [nome da disciplina]. O sistema permite executar operações básicas como empilhar valores, operações aritméticas e exibição de resultados.
