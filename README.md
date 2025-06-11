@@ -1,81 +1,96 @@
-# Máquina Virtual Baseada em Pilha - Etapa 1
+# 💻 Máquina Virtual Baseada em Pilha 
 
-![Stack Machine](https://img.shields.io/badge/Status-Completo-success) 
-![Language](https://img.shields.io/badge/Linguagem-C-blue)
+## 💡 Objetivo
 
-## 👨‍💻 Nome da atividade
-Implementação de um interpretador REPL para uma máquina virtual baseada em pilha (Etapa 1).
+Implementação de um interpretador que funcione no formato **REPL**, aceitando comandos digitados pelo usuário, interpretando e executando as operações usando uma pilha.
 
-## 👥 Integrantes do Grupo
-| Nome | Matrícula |
-- Amanda Mikely Abreu Macêdo  
-- Gabriela Torres de Queiroz  
-- João Felipe Silva Soeiro  
-- Sávio Rodrigues Jeremias de Sousa   
+---
 
-## 📝 Descrição
-Implementação de um interpretador interativo (REPL) para uma máquina virtual baseada em pilha, desenvolvido em C como parte da disciplina de [nome da disciplina]. O sistema permite executar operações básicas como empilhar valores, operações aritméticas e exibição de resultados.
+## 👥 Autores
+* Amanda Mikely Abreu Macedo
+* Gabriela Torres de Queiroz
+* João Felipe Silva Soeiro
+* Sávio Rodrigues Jeremias de Sousa
 
-## 🛠️ Funcionalidades Implementadas
-- ✅ Comando `push` para empilhar valores
-- ✅ Operações aritméticas (`add`, `sub`, `mul`, `div`)
-- ✅ Comando `print` para exibir resultados
-- ✅ Gerenciamento de pilha com tamanho configurável
-- ✅ Interface REPL interativa
+--- 
 
-## 📦 Estrutura do Projeto
-/maquina-pilha
-├── main.c # Loop principal REPL
-├── interpret.c # Processamento dos comandos
-├── interpret.h # Cabeçalho do interpretador
-├── stack.c # Implementação da pilha
-├── stack.h # Cabeçalho da pilha
-├── README.md # Este arquivo
-└── Makefile # (Opcional) Para compilação automatizada
+## 🔧 Instruções de compilação e uso
 
-## ⚙️ Instruções de Compilação e Uso
+### 1. Pré-requisitos
 
-### 1. Compilar o projeto
+* [Code::Blocks](https://www.codeblocks.org/) ou [VSCode](https://code.visualstudio.com/) instalado;
+* Caso utilize o VSCode, instale as seguintes extensões: C/C++ do Microsoft e, opcionalmente, a extensão Code Runner ou C/C++ Compile Run.
 
-Utilize um compilador C como o `gcc`. Execute o comando no terminal:
+---
+
+### 2. Clone o repositório
 
 ```bash
-gcc main.c interpret.c stack.c -o maquina-pilha
+git clone https://github.com/gabrielaqueirxz/algorithms-REPL-interpreter.git
+cd sua-repo
 ```
+Você também pode fazer download do repositório em formato .zip e abrir no seu Code::Blocks.
 
-### 2. Executar o programa
+---
 
+### 3. Estrutura do Projeto
+
+```
+algorithms-REPL-interpreter/
+├── README.md/
+├── interpret.c/
+├── interpret.h/
+├── main.c/
+├── stack.c/
+├── stack.h/
+
+```
+---
+
+### 4. Rodando e compilando o interpretador
+
+No Code::Blocks você pode rodar normalmente pelo botão **Run and Compile**.
+
+No terminal do VSCode digite o seguinte código:
 ```bash
-./maquina-pilha
+gcc *.c -o main
+./main
 ```
+---
 
-### 3. Comandos disponíveis no REPL
+### 5. Funcionalidades e Comandos Disponíveis
+
+* Realizar operações de: adicionar, remover, somar, subtrair, dividir, multiplicar e imprimir valores;
+* Imprimir o resultado no console e a pilha atual;
+* Tratamento de erros.
 
 | Comando | Descrição |
 |------|-----------|
-| push <valor>  | Empilha um número inteiro (ex: push 10) |
-| pop | Remove o topo da pilha (sem imprimir |
-| add| Soma os dois valores do topo da pilha e empilha o resultado |
-| sub |  Subtrai o segundo valor do topo pelo primeiro e empilha |
-| mul | Multiplica os dois valores do topo |
-| div| Divide o segundo valor do topo pelo primeiro (divisão inteira) |
-| print | Imprime o valor no topo da pilha |
-| exit | Sai do programa |
+| push <valor>  | Empilha um número inteiro na pilha.|
+| pop | Remove o topo da pilha.|
+| add| Desempilha dois valores da pilha, soma, e empilha o resultado.|
+| sub |  Desempilha dois valores, subtrai o segundo do primeiro (topo), e empilha o resultado.|
+| mul | Desempilha dois valores, multiplica, e empilha o resultado. |
+| div| Desempilha dois valores, divide o primeiro (topo) pelo segundo (divisão inteira), e empilha o resultado.|
+| print | Desempilha um valor e imprime imediatamente no console.|
+| exit | Sai do programa. |
 
-### 4.Exemplo de Uso
+---
 
-> push 10
-> push 5
-> add
-> print
-Resultado: 15
-> push 3
-> mul
-> print
-Resultado: 45
-> exit
+## 📑 Contribuição
 
-## 🛡️ Licença
+Contribuições são bem-vindas! Envie pull requests ou abra issues com sugestões.
+
+---
+
+## 🏅 Reconhecimentos e Direitos Autorais
+* Outros repositórios: https://github.com/gabrielaqueirxz
+
+* Agradecimentos: Universidade Federal do Maranhão (UFMA), Professor Doutor Sérgio Souza Costa, e colegas de curso.
+
+---
+
+## 🛡 Licença
 
 @Copyright/License
 
@@ -84,6 +99,3 @@ Este material é resultado de um trabalho acadêmico para a disciplina ALGORITMO
 Copyright © 2025 Educational Material
 
 Este material está licenciado sob a Licença MIT. É permitido o uso, cópia, modificação, e distribuição deste material para qualquer fim, desde que acompanhado deste aviso de direitos autorais.
-
-
-
