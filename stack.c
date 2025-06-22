@@ -36,7 +36,7 @@ void stackPrint(Stack* stack){
     printf("------Current Stack------\n");
     if(stack->top!=0){
         for (int i=0; i < stack->top; i++) {
-        printf ("\n%d\n", stack->values[i]);
+        printf ("\t%d\n", stack->values[i]);
         }
     }
     printf("-------------------------\n");

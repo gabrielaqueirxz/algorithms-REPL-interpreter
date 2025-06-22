@@ -2,6 +2,7 @@
 #include <string.h>
 #include "interpret.h"
 #include "stack.h"
+#include "list.h"
 
 static void repl()
 {
@@ -27,13 +28,14 @@ static void repl()
 int main () {
     printf("Comandos disponíveis:\n");
     printf("  push <numero>\n");
-    printf("  pop \n");
+    printf("  pop or pop <var> \n");
     printf("  add, sub, mul, div \n");
     printf("  div\n");
     printf("  print\n");
     printf("  exit\n\n");
 
     generateStack(15);
+    generateList();
     repl();
     return 0;
 }
