@@ -1,3 +1,4 @@
+
 # 💻 Máquina Virtual Baseada em Pilha 
 
 ## 💡 Objetivo
@@ -37,14 +38,16 @@ Você também pode fazer download do repositório em formato .zip e abrir no seu
 
 ```
 algorithms-REPL-interpreter/
-├── README.md/
-├── interpret.c/
-├── interpret.h/
-├── main.c/
-├── stack.c/
-├── stack.h/
-
+├── README.md
+├── interpret.c
+├── interpret.h
+├── main.c
+├── stack.c
+├── stack.h
+├── lista.c
+├── lista.h
 ```
+
 ---
 
 ### 4. Rodando e compilando o interpretador
@@ -56,6 +59,7 @@ No terminal do VSCode digite o seguinte código:
 gcc *.c -o main
 ./main
 ```
+
 ---
 
 ### 5. Funcionalidades e Comandos Disponíveis
@@ -66,14 +70,95 @@ gcc *.c -o main
 
 | Comando | Descrição |
 |------|-----------|
-| push <valor>  | Empilha um número inteiro na pilha.|
-| pop | Remove o topo da pilha.|
-| add| Desempilha dois valores da pilha, soma, e empilha o resultado.|
-| sub |  Desempilha dois valores, subtrai o segundo do primeiro (topo), e empilha o resultado.|
-| mul | Desempilha dois valores, multiplica, e empilha o resultado. |
-| div| Desempilha dois valores, divide o primeiro (topo) pelo segundo (divisão inteira), e empilha o resultado.|
-| print | Desempilha um valor e imprime imediatamente no console.|
-| exit | Sai do programa. |
+| push <valor>  | Empilha um número inteiro na pilha ou o valor de uma variável.|
+| pop           | Remove o topo da pilha.|
+| add           | Soma os dois valores do topo.|
+| sub           | Subtrai o segundo valor do primeiro (topo).|
+| mul           | Multiplica os dois valores do topo.|
+| div           | Divide o primeiro (topo) pelo segundo (divisão inteira).|
+| print         | Imprime o valor do topo da pilha.|
+| exit          | Sai do programa.|
+
+---
+
+## ✨ Etapa 2 — Manipulação de Variáveis com Lista Encadeada
+
+Nesta etapa, foi implementada uma **memória de variáveis** utilizando **lista encadeada**. Agora, o interpretador da máquina virtual é capaz de associar nomes a valores e reutilizá-los, ampliando sua semelhança com linguagens reais.
+
+---
+
+### 🧵 Novas Funcionalidades
+
+#### ✅ **Uso de Variáveis Nomeadas**
+A memória é estruturada como uma **lista encadeada de pares (nome, valor)**. Isso permite:
+
+- Criar variáveis com o comando `pop <nome_variável>`;
+- Reutilizar variáveis com `push <nome_variável>`.
+
+#### 🧠 **Comandos Adicionados**
+
+| Comando | Ação |
+|--------|------|
+| `push <valor>` | Empilha um número inteiro ou o valor de uma variável existente. |
+| `push <nome_variável>` | Busca o valor associado à variável e empilha. Se não existir, mostra erro. |
+| `pop <nome_variável>` | Armazena o valor do topo da pilha na variável especificada. Se ela já existir, atualiza. Caso contrário, cria uma nova. |
+
+---
+
+### 🧪 Exemplo de Código Interpretado
+
+```bash
+push 42
+push 5
+add         # → 47
+push 8
+sub         # → 39
+pop a       # a = 39
+
+push 56
+push 8
+add         # → 64
+pop b       # b = 64
+
+push a
+push b
+add         # → 103
+push 6
+add         # → 109
+print       # imprime 109
+```
+
+---
+
+### 🗂️ Estrutura da Lista Encadeada (lista.h)
+
+```c
+struct node {
+    char key[15];
+    int value;
+    struct node* next;
+};
+
+struct list {
+    struct node* first;
+};
+```
+
+### 🔧 Funções Implementadas (lista.c)
+
+```c
+void set_variable(struct list* l, const char* key, int value);
+int get_variable(struct list* l, const char* key, int* found);
+```
+
+---
+
+### ✅ Critérios Atendidos na Etapa 2
+
+- [x] Lista encadeada corretamente implementada;
+- [x] Manipulação de variáveis com comandos `push` e `pop`;
+- [x] Integração das variáveis com a estrutura de pilha;
+- [x] Código modular, limpo e funcional.
 
 ---
 
@@ -84,6 +169,7 @@ Contribuições são bem-vindas! Envie pull requests ou abra issues com sugestõ
 ---
 
 ## 🏅 Reconhecimentos e Direitos Autorais
+
 * Outros repositórios: https://github.com/gabrielaqueirxz
 
 * Agradecimentos: Universidade Federal do Maranhão (UFMA), Professor Doutor Sérgio Souza Costa, e colegas de curso.
@@ -92,10 +178,8 @@ Contribuições são bem-vindas! Envie pull requests ou abra issues com sugestõ
 
 ## 🛡 Licença
 
-@Copyright/License
-
-Este material é resultado de um trabalho acadêmico para a disciplina ALGORITMOS E ESTRUTURA DE DADOS, sobre a orientação do professor Dr. SÉRGIO SOUZA COSTA, semestre letivo 2025.1, curso Ciência e Tecnologia, na Universidade Federal do Maranhão (UFMA). Todo o material sob esta licença é software livre: pode ser usado para fins acadêmicos e comerciais sem nenhum custo. Não há papelada, nem royalties, nem restrições de "copyleft" do tipo GNU. Ele é licenciado sob os termos da licença MIT reproduzida abaixo e, portanto, é compatível com GPL e também se qualifica como software de código aberto. É de domínio público. Os detalhes legais estão abaixo. O espírito desta licença é que você é livre para usar este material para qualquer finalidade, sem nenhum custo. O único requisito é que, se você usá-los, nos dê crédito.
-
-Copyright © 2025 Educational Material
+Este material é resultado de um trabalho acadêmico para a disciplina ALGORITMOS E ESTRUTURA DE DADOS, sobre a orientação do professor Dr. SÉRGIO SOUZA COSTA, semestre letivo 2025.1, curso Ciência e Tecnologia, na Universidade Federal do Maranhão (UFMA).
 
 Este material está licenciado sob a Licença MIT. É permitido o uso, cópia, modificação, e distribuição deste material para qualquer fim, desde que acompanhado deste aviso de direitos autorais.
+
+Copyright © 2025
