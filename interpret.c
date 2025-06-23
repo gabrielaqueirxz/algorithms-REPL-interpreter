@@ -21,17 +21,22 @@ void interpret (const char *input, int print) {
     char op[10] = "";
     char arg[20] = "";
     
-    // Conta quantos itens foram lidos
     int numArgs = sscanf(input, "%s%s", op, arg);
 
-    char *endptr;
-    long val = strtol(arg, &endptr, 10);
-
     if (strcmp(op, "push") == 0) {
-        if (sscanf(arg, "%d", &a) == 0 ) {
+        char *endptr;
+        long val = strtol(arg, &endptr, 10);
+
+        if (*endptr == '\0') {
+            a = (int) val;
+            stackPush(stack, a);
+        } else if (listExist(list, arg)) {
             a = listGet(list, arg);
+            stackPush(stack, a);
+        } else {
+            printf("Erro: valor inválido ou variável '%s' não existe.\n", arg);
         }
-        stackPush(stack, a);
+
     } else if (strcmp(op, "pop") == 0) {
         a = stackPop(stack);
         if (numArgs == 2) {
@@ -73,6 +78,6 @@ void interpret (const char *input, int print) {
         }
     } else {
         printf("Erro: comando inválido!\n");
-        printf("Comandos: push <valor>, pop [<variavel>], add, sub, mul, div, print, exit.\n");
+        printf("Comandos: push <valor>, pop or pop <variável>, add, sub, mul, div, print, exit.\n");
     }
 }
