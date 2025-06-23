@@ -87,7 +87,7 @@ Nesta etapa, foi implementada uma **memória de variáveis** utilizando **lista 
 
 ---
 
-### 🧵 Novas Funcionalidades
+### 1. Novas Funcionalidades
 
 #### ✅ **Uso de Variáveis Nomeadas**
 A memória é estruturada como uma **lista encadeada de pares (nome, valor)**. Isso permite:
@@ -95,7 +95,7 @@ A memória é estruturada como uma **lista encadeada de pares (nome, valor)**. I
 - Criar variáveis com o comando `pop <nome_variável>`;
 - Reutilizar variáveis com `push <nome_variável>`.
 
-#### 🧠 **Comandos Adicionados**
+#### 2. **Comandos Adicionados**
 
 | Comando | Ação |
 |--------|------|
@@ -105,7 +105,7 @@ A memória é estruturada como uma **lista encadeada de pares (nome, valor)**. I
 
 ---
 
-### 🧪 Exemplo de Código Interpretado
+### 3. Exemplo de Código Interpretado
 
 ```bash
 push 42
@@ -130,7 +130,7 @@ print       # imprime 109
 
 ---
 
-### 🗂️ Estrutura da Lista Encadeada (lista.h)
+### 🗂4. Estrutura da Lista Encadeada (lista.h)
 
 ```c
 struct node {
@@ -144,7 +144,7 @@ struct list {
 };
 ```
 
-### 🔧 Funções Implementadas (lista.c)
+### 5. Funções Implementadas (lista.c)
 
 ```c
 void set_variable(struct list* l, const char* key, int value);
@@ -153,7 +153,7 @@ int get_variable(struct list* l, const char* key, int* found);
 
 ---
 
-### ✅ Critérios Atendidos na Etapa 2
+### 6. Critérios Atendidos na Etapa 2
 
 - [x] Lista encadeada corretamente implementada;
 - [x] Manipulação de variáveis com comandos `push` e `pop`;
