@@ -18,23 +18,31 @@ void generateStack (int quantValues) {
 
 void interpret (const char *input, int print) {
     int a = 0, b = 0;
-    char op[10], arg[20];
-    sscanf(input, "%s%s", op, arg);
+    char op[10] = "";
+    char arg[20] = "";
+    
+    // Conta quantos itens foram lidos
+    int numArgs = sscanf(input, "%s%s", op, arg);
+
     char *endptr;
     long val = strtol(arg, &endptr, 10);
 
     if (strcmp(op, "push") == 0) {
         if (sscanf(arg, "%d", &a) == 0 ) {
-        a = listGet (list, arg);
-    }
-    stackPush(stack, a);
-    } else if (strcmp(op, "pop") == 0) {
-        a = stackPop (stack);
-        if (listExist (list, arg)) {
-        listSet(list, arg, a);
-        } else {
-        listAppend(list, arg, a);
+            a = listGet(list, arg);
         }
+        stackPush(stack, a);
+    } else if (strcmp(op, "pop") == 0) {
+        a = stackPop(stack);
+        // Se um argumento foi passado (ex: pop x)
+        if (numArgs == 2) {
+            if (listExist(list, arg)) {
+                listSet(list, arg, a);
+            } else {
+                listAppend(list, arg, a);
+            }
+        }
+        // Caso contrário, só descarta o valor
     } else if (strcmp(op, "print") == 0) {
         printf("Resultado: %d\n", stackPop(stack));
         if (print != 0) {
@@ -67,6 +75,6 @@ void interpret (const char *input, int print) {
         }
     } else {
         printf("Erro: comando inválido!\n");
-        printf("Comandos: push <valor>, pop, add, sub, mul, div, print, exit.\n");
+        printf("Comandos: push <valor>, pop [<variavel>], add, sub, mul, div, print, exit.\n");
     }
 }
