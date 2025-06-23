@@ -34,7 +34,6 @@ void interpret (const char *input, int print) {
         stackPush(stack, a);
     } else if (strcmp(op, "pop") == 0) {
         a = stackPop(stack);
-        // Se um argumento foi passado (ex: pop x)
         if (numArgs == 2) {
             if (listExist(list, arg)) {
                 listSet(list, arg, a);
@@ -42,7 +41,6 @@ void interpret (const char *input, int print) {
                 listAppend(list, arg, a);
             }
         }
-        // Caso contrário, só descarta o valor
     } else if (strcmp(op, "print") == 0) {
         printf("Resultado: %d\n", stackPop(stack));
         if (print != 0) {
